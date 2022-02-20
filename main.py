@@ -82,14 +82,11 @@ def scrape_achievements(first_page=1, last_page=2):
     return all_achievements
 
 
-scraped = scrape_achievements(1, 4)
+def write_to_file(achievements, directory, filename):
+    if not os.path.exists(directory):
+        os.mkdir(directory)
 
-
-def write_to_file(achievements):
-    if not os.path.exists('data'):
-        os.mkdir('data')
-
-    with open('data/achievements.csv', 'w', encoding='utf8', newline='') as f:
+    with open(f'{directory}/{filename}', 'w', encoding='utf8', newline='') as f:
         writer = csv.writer(f)
 
         header = ['name', 'description', 'category', 'fraction', 'points', 'icon_url']
@@ -99,4 +96,6 @@ def write_to_file(achievements):
             writer.writerow(achievement)
 
 
-write_to_file(scraped)
+if __name__ == '__main__':
+    scraped_achievements = scrape_achievements(1, 60)
+    write_to_file(scraped_achievements, 'data', 'achievements.csv')
