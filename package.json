@@ -1,8 +1,7 @@
 {
   "name": "invert-binary-tree",
-  "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm ./index.ts",
+    "start": "ts-node src/index.ts",
     "debug": "DEBUG=true npm start"
   },
   "dependencies": {
