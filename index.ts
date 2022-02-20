@@ -7,8 +7,13 @@ const browser = await puppeteer.launch(
 )
 const page = await browser.newPage()
 await page.goto(baseUrl + '/achievements')
+
 await acceptCookies()
-await page.screenshot({ path: 'example.png' })
+await declineNotifications()
+
+const [el] = await page.$x('//*[@id="fi"]/form/div[1]/h1')
+const title = await el.getProperty('textContent')
+console.log(await title.jsonValue())
 
 await browser.close()
 
@@ -17,10 +22,15 @@ function acceptCookies() {
     const acceptBtn = document.querySelector<HTMLButtonElement>(
       '#onetrust-accept-btn-handler',
     )
-    acceptBtn.click()
+    acceptBtn?.click()
   })
 }
 
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+function declineNotifications() {
+  return page.evaluate(() => {
+    const declineBtn = document.querySelector<HTMLButtonElement>(
+      '.notifications-dialog-buttons-decline',
+    )
+    declineBtn?.click()
+  })
 }
