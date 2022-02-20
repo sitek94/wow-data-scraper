@@ -1,5 +1,9 @@
 # World of Warcraft Data Scraper
 
+## Available data
+
+- [Achievements](data/achievements.csv) ~6000 achievements
+
 ## Development
 
 ```bash
