@@ -1,0 +1,14 @@
+{
+  "name": "invert-binary-tree",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo 'Siema'"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "author": "Maciek Sitkowski <msitkowski94@gmail.com> (https://github.com/sitek94)"
+}
