@@ -1,8 +1,11 @@
 {
   "name": "invert-binary-tree",
-  "main": "index.ts",
+  "type": "module",
   "scripts": {
-    "test": "echo 'Siema'"
+    "start": "node --loader ts-node/esm ./index.ts"
+  },
+  "dependencies": {
+    "puppeteer": "^13.3.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
